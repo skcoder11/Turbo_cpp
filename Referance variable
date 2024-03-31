@@ -1,0 +1,20 @@
+#include <iostream.h>
+#include <conio.h>
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    int num = 10;
+    int& ref = num; // Reference variable ref referring to num
+    
+    cout << "Original value of num: " << num << endl;
+    cout << "Value of ref: " << ref << endl;
+    
+    ref = 20; // Changing value through reference
+    
+    cout << "Modified value of num: " << num << endl;
+    cout << "Value of ref after modification: " << ref << endl;
+    
+    getch(); // Wait for a key press
+    return 0;
+}
