@@ -1,0 +1,64 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Base class
+class Base {
+protected:
+    int baseData;
+public:
+    // Constructor
+    Base(int value) : baseData(value) {}
+
+    // Member function to display base data
+    void displayBase() {
+        cout << "Base Data: " << baseData << endl;
+    }
+};
+
+// Derived class 1
+class Derived1 : public Base {
+private:
+    int derived1Data;
+public:
+    // Constructor
+    Derived1(int baseValue, int derived1Value)
+        : Base(baseValue), derived1Data(derived1Value) {}
+
+    // Member function to display derived1 data
+    void displayDerived1() {
+        cout << "Derived1 Data: " << derived1Data << endl;
+    }
+};
+
+// Derived class 2
+class Derived2 : public Base {
+private:
+    int derived2Data;
+public:
+    // Constructor
+    Derived2(int baseValue, int derived2Value)
+        : Base(baseValue), derived2Data(derived2Value) {}
+
+    // Member function to display derived2 data
+    void displayDerived2() {
+        cout << "Derived2 Data: " << derived2Data << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of Derived1 and Derived2 classes
+    Derived1 obj1(10, 20);
+    Derived2 obj2(30, 40);
+
+    // Displaying base, derived1, and derived2 data using member functions
+    obj1.displayBase();
+    obj1.displayDerived1();
+
+    obj2.displayBase();
+    obj2.displayDerived2();
+
+    getch(); // Wait for a key press
+    return 0;
+}
