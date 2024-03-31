@@ -1,0 +1,21 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Global variable
+int num = 10;
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    // Local variable
+    int num = 20;
+    
+    // Accessing global variable using scope resolution operator
+    cout << "Global variable num: " << ::num << endl;
+    
+    // Accessing local variable
+    cout << "Local variable num: " << num << endl;
+    
+    getch(); // Wait for a key press
+    return 0;
+}
