@@ -1,0 +1,35 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class declaration
+class MyClass {
+private:
+    int data;
+public:
+    // Constructor
+    MyClass(int value) : data(value) {}
+
+    // Destructor
+    ~MyClass() {
+        cout << "Destructor called, Data: " << data << endl;
+    }
+
+    // Member function to display data
+    void display() {
+        cout << "Data: " << data << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of MyClass
+    MyClass obj(42);
+
+    // Displaying data using the member function
+    obj.display();
+
+    // Destructor will be called when the object goes out of scope
+    getch(); // Wait for a key press
+    return 0;
+}
