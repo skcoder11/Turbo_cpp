@@ -1,0 +1,64 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class declaration
+class Counter {
+private:
+    int count;
+public:
+    // Constructor
+    Counter(int c) : count(c) {}
+
+    // Overloaded addition operator (+)
+    Counter operator+(const Counter& c2) {
+        return Counter(count + c2.count);
+    }
+
+    // Overloaded subtraction operator (-)
+    Counter operator-(const Counter& c2) {
+        return Counter(count - c2.count);
+    }
+
+    // Overloaded multiplication operator (*)
+    Counter operator*(const Counter& c2) {
+        return Counter(count * c2.count);
+    }
+
+    // Overloaded division operator (/)
+    Counter operator/(const Counter& c2) {
+        if (c2.count != 0) {
+            return Counter(count / c2.count);
+        } else {
+            cerr << "Error: Division by zero!" << endl;
+            return Counter(0);
+        }
+    }
+
+    // Member function to display count
+    void displayCount() {
+        cout << "Count: " << count << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of Counter class
+    Counter c1(10);
+    Counter c2(5);
+
+    // Using overloaded operators
+    Counter c3 = c1 + c2;
+    Counter c4 = c1 - c2;
+    Counter c5 = c1 * c2;
+    Counter c6 = c1 / c2;
+
+    // Displaying the results
+    c3.displayCount(); // Output: Count: 15
+    c4.displayCount(); // Output: Count: 5
+    c5.displayCount(); // Output: Count: 50
+    c6.displayCount(); // Output: Count: 2
+
+    getch(); // Wait for a key press
+    return 0;
+}
