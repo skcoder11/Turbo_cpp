@@ -1,0 +1,43 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Base class
+class Base {
+public:
+    // Virtual function
+    virtual void display() {
+        cout << "Base class display()" << endl;
+    }
+};
+
+// Derived class
+class Derived : public Base {
+public:
+    // Overridden virtual function
+    void display() {
+        cout << "Derived class display()" << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of Base class
+    Base* basePtr = new Base();
+
+    // Casting the base class pointer to derived class pointer
+    Derived* derivedPtr = dynamic_cast<Derived*>(basePtr);
+
+    if (derivedPtr) {
+        // Calling the display function using the derived class pointer
+        derivedPtr->display(); // Output: Derived class display()
+    } else {
+        cout << "Conversion from Base to Derived failed!" << endl;
+    }
+
+    // Cleanup
+    delete basePtr;
+
+    getch(); // Wait for a key press
+    return 0;
+}
