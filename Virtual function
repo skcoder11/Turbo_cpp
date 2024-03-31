@@ -1,0 +1,36 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Base class
+class Base {
+public:
+    // Virtual function
+    virtual void display() {
+        cout << "Base class display()" << endl;
+    }
+};
+
+// Derived class
+class Derived : public Base {
+public:
+    // Overridden virtual function
+    void display() override {
+        cout << "Derived class display()" << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Pointer to base class pointing to derived object
+    Base* ptr = new Derived();
+
+    // Calling the virtual function
+    ptr->display();
+
+    // Deleting dynamically allocated object
+    delete ptr;
+
+    getch(); // Wait for a key press
+    return 0;
+}
