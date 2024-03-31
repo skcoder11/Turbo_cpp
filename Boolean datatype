@@ -1,0 +1,17 @@
+#include <iostream.h>
+#include <conio.h>
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    bool isRaining = true;
+    
+    if (isRaining) {
+        cout << "Take an umbrella!" << endl;
+    } else {
+        cout << "No need for an umbrella today." << endl;
+    }
+    
+    getch(); // Wait for a key press
+    return 0;
+}
