@@ -1,0 +1,39 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class declaration
+class Point {
+private:
+    int x;
+    int y;
+public:
+    // Constructor
+    Point(int xVal = 0, int yVal = 0) : x(xVal), y(yVal) {}
+
+    // Overloaded extraction operator (>>)
+    friend istream& operator>>(istream& is, Point& p) {
+        is >> p.x >> p.y;
+        return is;
+    }
+
+    // Member function to display point
+    void display() {
+        cout << "Point: (" << x << ", " << y << ")" << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    Point p;
+
+    // Prompting user to enter x and y coordinates
+    cout << "Enter x and y coordinates of the point: ";
+    cin >> p; // Using overloaded extraction operator
+
+    // Displaying the point
+    p.display();
+
+    getch(); // Wait for a key press
+    return 0;
+}
