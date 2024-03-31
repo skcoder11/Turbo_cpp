@@ -1,0 +1,38 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Base struct
+struct Base {
+    // Function pointer for the virtual function
+    void (*display)(Base*);
+};
+
+// Derived struct
+struct Derived : public Base {
+    int data;
+
+    // Constructor to initialize function pointer
+    Derived(int d) : data(d) {
+        // Set the display function pointer to point to the derived implementation
+        display = &Derived::display_impl;
+    }
+
+    // Function to implement display
+    static void display_impl(Base* obj) {
+        Derived* derivedObj = static_cast<Derived*>(obj);
+        cout << "Derived display(): " << derivedObj->data << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of Derived
+    Derived derivedObj(42);
+
+    // Calling the virtual function using the function pointer
+    derivedObj.display(&derivedObj);
+
+    getch(); // Wait for a key press
+    return 0;
+}
