@@ -1,0 +1,44 @@
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+class Student {
+private:
+    char name[50];
+    int age;
+public:
+    // Constructor
+    Student(const char* name, int age) {
+        strcpy(this->name, name);
+        this->age = age;
+    }
+    
+    // Overloaded '+' operator to add ages
+    Student operator+(const Student& s) {
+        int newAge = this->age + s.age;
+        return Student("Combined", newAge);
+    }
+
+    // Overloaded '<<' operator to print object details
+    friend ostream& operator<<(ostream& os, const Student& s) {
+        os << "Name: " << s.name << ", Age: " << s.age;
+        return os;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    // Creating student objects
+    Student student1("Alice", 20);
+    Student student2("Bob", 22);
+    
+    // Adding ages using overloaded operator
+    Student combined = student1 + student2;
+    
+    // Printing details using overloaded operator
+    cout << "Combined Student: " << combined << endl;
+    
+    getch(); // Wait for a key press
+    return 0;
+}
