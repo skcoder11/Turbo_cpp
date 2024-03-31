@@ -1,0 +1,47 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class with access specifiers
+class MyClass {
+private:
+    int privateMember;
+protected:
+    int protectedMember;
+public:
+    int publicMember;
+
+    // Constructor
+    MyClass(int pri, int pro, int pub) {
+        privateMember = pri;
+        protectedMember = pro;
+        publicMember = pub;
+    }
+
+    // Member functions to access private and protected members
+    int getPrivateMember() {
+        return privateMember;
+    }
+
+    int getProtectedMember() {
+        return protectedMember;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating object of MyClass
+    MyClass obj(1, 2, 3);
+
+    // Accessing public member
+    cout << "Public Member: " << obj.publicMember << endl;
+
+    // Accessing private member using member function
+    cout << "Private Member: " << obj.getPrivateMember() << endl;
+
+    // Accessing protected member using member function
+    cout << "Protected Member: " << obj.getProtectedMember() << endl;
+
+    getch(); // Wait for a key press
+    return 0;
+}
