@@ -1,0 +1,36 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Student template class
+template <class T>
+class Student {
+private:
+    T rollNumber;
+    T marks;
+public:
+    // Constructor
+    Student(T roll, T m) : rollNumber(roll), marks(m) {}
+
+    // Member function to display student details
+    void display() {
+        cout << "Roll Number: " << rollNumber << ", Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of Student template class with different data types
+    Student<int> student1(101, 85);
+    Student<float> student2(102.5, 90.5);
+
+    // Displaying student details
+    cout << "Details of student1:" << endl;
+    student1.display(); // Output: Roll Number: 101, Marks: 85
+
+    cout << "Details of student2:" << endl;
+    student2.display(); // Output: Roll Number: 102.5, Marks: 90.5
+
+    getch(); // Wait for a key press
+    return 0;
+}
