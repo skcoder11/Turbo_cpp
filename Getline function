@@ -1,0 +1,47 @@
+#include <iostream.h>
+#include <fstream.h>
+#include <string.h>
+#include <conio.h>
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Open a file in write mode and write some lines
+    ofstream outFile("output.txt");
+
+    // Check if the file is opened successfully
+    if (!outFile) {
+        cerr << "Error: Unable to open file!" << endl;
+        return 1;
+    }
+
+    // Writing data to the file
+    outFile << "Line 1" << endl;
+    outFile << "Line 2" << endl;
+    outFile << "Line 3" << endl;
+
+    // Close the file
+    outFile.close();
+
+    // Open the same file in read mode
+    ifstream inFile("output.txt");
+
+    // Check if the file is opened successfully
+    if (!inFile) {
+        cerr << "Error: Unable to open file!" << endl;
+        return 1;
+    }
+
+    // Read and display each line from the file
+    char line[100]; // Buffer to store each line
+    cout << "Content of file:" << endl;
+    while (inFile.getline(line, sizeof(line))) {
+        cout << line << endl;
+    }
+
+    // Close the file
+    inFile.close();
+
+    getch(); // Wait for a key press
+    return 0;
+}
