@@ -1,0 +1,20 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Function declaration with default arguments
+void greet(char* name = "Guest");
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    greet(); // Call greet() with default argument
+    greet("John"); // Call greet() with a specific argument
+    
+    getch(); // Wait for a key press
+    return 0;
+}
+
+// Function definition with default argument
+void greet(char* name) {
+    cout << "Hello, " << name << "!" << endl;
+}
