@@ -1,0 +1,35 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Student namespace declaration
+namespace Student {
+    // Student class declaration
+    class StudentInfo {
+    private:
+        char name[50];
+        int age;
+    public:
+        // Constructor
+        StudentInfo(const char* n, int a) : age(a) {
+            strcpy(name, n);
+        }
+
+        // Member function to display student information
+        void display() {
+            cout << "Name: " << name << ", Age: " << age << endl;
+        }
+    };
+}
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of StudentInfo class inside the Student namespace
+    Student::StudentInfo student("Alice", 20);
+
+    // Displaying student information using the display() function
+    student.display();
+
+    getch(); // Wait for a key press
+    return 0;
+}
