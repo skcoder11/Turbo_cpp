@@ -1,0 +1,44 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Base class
+class Base {
+public:
+    // Virtual function
+    virtual void display() {
+        cout << "Base class display()" << endl;
+    }
+};
+
+// Derived class
+class Derived : public Base {
+public:
+    // Overridden virtual function
+    void display() override {
+        cout << "Derived class display()" << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Early binding: calling the function directly
+    Base baseObj;
+    baseObj.display(); // Calls Base class display() because object is of Base class type
+
+    Derived derivedObj;
+    derivedObj.display(); // Calls Derived class display() because object is of Derived class type
+
+    // Late binding: using function pointers
+    void (Base::*basePtr)() = &Base::display;
+    void (Base::*derivedPtr)() = &Derived::display;
+
+    Base* ptr = &derivedObj; // Pointer of base class pointing to derived class object
+
+    // Calling the virtual function through function pointers
+    (ptr->*basePtr)(); // Early binding: Calls Base class display()
+    (ptr->*derivedPtr)(); // Late binding: Calls Derived class display()
+
+    getch(); // Wait for a key press
+    return 0;
+}
