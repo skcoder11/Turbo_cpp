@@ -1,0 +1,64 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Destination class declaration
+class Destination {
+private:
+    int value;
+public:
+    // Constructor
+    Destination(int v = 0) : value(v) {}
+
+    // Member function to display value
+    void display() {
+        cout << "Value in Destination: " << value << endl;
+    }
+
+    // Conversion operator from Source to Destination
+    Destination(Source s) {
+        value = s.getValue();
+    }
+};
+
+// Source class declaration
+class Source {
+private:
+    int value;
+public:
+    // Constructor
+    Source(int v = 0) : value(v) {}
+
+    // Member function to display value
+    void display() {
+        cout << "Value in Source: " << value << endl;
+    }
+
+    // Getter function for value
+    int getValue() {
+        return value;
+    }
+
+    // Conversion operator from Source to Destination
+    operator Destination() {
+        return Destination(value);
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of Source class
+    Source s(42);
+
+    // Displaying value in Source
+    s.display();
+
+    // Conversion from Source to Destination using conversion operator
+    Destination d = s;
+
+    // Displaying value in Destination
+    d.display();
+
+    getch(); // Wait for a key press
+    return 0;
+}
