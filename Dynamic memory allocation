@@ -1,0 +1,27 @@
+#include <iostream.h>
+#include <conio.h>
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Dynamic memory allocation for an integer
+    int* ptr = new int;
+
+    // Checking if memory allocation was successful
+    if (ptr == nullptr) {
+        cout << "Memory allocation failed!" << endl;
+        return 1;
+    }
+
+    // Assigning value to the dynamically allocated memory
+    *ptr = 42;
+
+    // Displaying the value
+    cout << "Value of dynamically allocated integer: " << *ptr << endl;
+
+    // Releasing dynamically allocated memory
+    delete ptr;
+
+    getch(); // Wait for a key press
+    return 0;
+}
