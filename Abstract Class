@@ -1,0 +1,34 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Abstract base class with pure virtual function
+class AbstractBase {
+public:
+    // Pure virtual function
+    virtual void display() = 0;
+};
+
+// Derived class
+class Derived : public AbstractBase {
+public:
+    // Overriding the pure virtual function
+    void display() override {
+        cout << "Derived class implementation" << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Cannot create object of AbstractBase
+    // AbstractBase obj;
+
+    // Creating object of Derived
+    Derived derivedObj;
+
+    // Calling the overridden function
+    derivedObj.display();
+
+    getch(); // Wait for a key press
+    return 0;
+}
