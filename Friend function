@@ -1,0 +1,49 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Forward declaration of class B
+class B;
+
+// Class A declaration
+class A {
+private:
+    int a;
+public:
+    // Constructor
+    A(int value) : a(value) {}
+
+    // Friend function declaration
+    friend void showA(A, B);
+};
+
+// Class B declaration
+class B {
+private:
+    int b;
+public:
+    // Constructor
+    B(int value) : b(value) {}
+
+    // Friend function declaration
+    friend void showA(A, B);
+};
+
+// Friend function definition
+void showA(A objA, B objB) {
+    cout << "Values from class A: " << objA.a << endl;
+    cout << "Values from class B: " << objB.b << endl;
+}
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of classes A and B
+    A objA(10);
+    B objB(20);
+
+    // Calling the friend function to access private members of both classes
+    showA(objA, objB);
+
+    getch(); // Wait for a key press
+    return 0;
+}
