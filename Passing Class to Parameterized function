@@ -1,0 +1,35 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class declaration
+class MyClass {
+private:
+    int data;
+public:
+    // Constructor
+    MyClass(int d) : data(d) {}
+
+    // Member function to display data
+    void display() {
+        cout << "Data: " << data << endl;
+    }
+};
+
+// Function that takes a class object as a parameter
+void processData(MyClass obj) {
+    cout << "Data received by the function: ";
+    obj.display();
+}
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating a MyClass object
+    MyClass obj(42);
+
+    // Passing the object to the function
+    processData(obj);
+
+    getch(); // Wait for a key press
+    return 0;
+}
