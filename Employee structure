@@ -1,0 +1,40 @@
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+struct Employee {
+    char name[50];
+    int id;
+    float salary;
+};
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    // Creating employee objects
+    Employee emp1, emp2;
+    
+    // Setting details for employee 1
+    strcpy(emp1.name, "Alice");
+    emp1.id = 1001;
+    emp1.salary = 50000.0;
+    
+    // Setting details for employee 2
+    strcpy(emp2.name, "Bob");
+    emp2.id = 1002;
+    emp2.salary = 60000.0;
+    
+    // Displaying details of employees
+    cout << "Employee 1:" << endl;
+    cout << "Name: " << emp1.name << endl;
+    cout << "ID: " << emp1.id << endl;
+    cout << "Salary: " << emp1.salary << endl;
+    
+    cout << "\nEmployee 2:" << endl;
+    cout << "Name: " << emp2.name << endl;
+    cout << "ID: " << emp2.id << endl;
+    cout << "Salary: " << emp2.salary << endl;
+    
+    getch(); // Wait for a key press
+    return 0;
+}
