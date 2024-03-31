@@ -1,0 +1,22 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Function prototype
+int add(int a, int b);
+
+int main() {
+    clrscr(); // Clear the screen
+    
+    int num1 = 5, num2 = 10;
+    int sum = add(num1, num2);
+    
+    cout << "The sum of " << num1 << " and " << num2 << " is: " << sum << endl;
+    
+    getch(); // Wait for a key press
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
