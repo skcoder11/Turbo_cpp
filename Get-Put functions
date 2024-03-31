@@ -1,0 +1,49 @@
+#include <iostream.h>
+#include <fstream.h>
+#include <conio.h>
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Open a file in write mode
+    ofstream outFile("output.txt");
+
+    // Check if the file is opened successfully
+    if (!outFile) {
+        cerr << "Error: Unable to open file!" << endl;
+        return 1;
+    }
+
+    // Writing data to the file using put()
+    outFile.put('H');
+    outFile.put('e');
+    outFile.put('l');
+    outFile.put('l');
+    outFile.put('o');
+    outFile.put('\n');
+
+    // Close the file
+    outFile.close();
+
+    // Open the same file in read mode
+    ifstream inFile("output.txt");
+
+    // Check if the file is opened successfully
+    if (!inFile) {
+        cerr << "Error: Unable to open file!" << endl;
+        return 1;
+    }
+
+    // Reading data from the file using get()
+    char ch;
+    cout << "Content of file:" << endl;
+    while (inFile.get(ch)) {
+        cout.put(ch);
+    }
+
+    // Close the file
+    inFile.close();
+
+    getch(); // Wait for a key press
+    return 0;
+}
