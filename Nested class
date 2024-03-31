@@ -1,0 +1,45 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Outer class declaration
+class Outer {
+private:
+    int outerData;
+
+    // Nested class declaration
+    class Inner {
+    private:
+        int innerData;
+    public:
+        // Constructor
+        Inner(int value) : innerData(value) {}
+
+        // Member function to display data
+        void display() {
+            cout << "Inner Data: " << innerData << endl;
+        }
+    };
+
+public:
+    // Constructor
+    Outer(int value) : outerData(value) {}
+
+    // Member function to create and display data of the nested class object
+    void displayInner() {
+        Inner innerObj(5); // Creating an object of Inner class
+        innerObj.display();
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of Outer class
+    Outer outerObj(10);
+
+    // Calling the member function of Outer class to create and display the nested class object
+    outerObj.displayInner();
+
+    getch(); // Wait for a key press
+    return 0;
+}
