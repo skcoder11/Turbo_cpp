@@ -1,0 +1,36 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Employee template class
+template <class T1, class T2>
+class Employee {
+private:
+    T1 employeeId;
+    T2 salary;
+public:
+    // Constructor
+    Employee(T1 id, T2 s) : employeeId(id), salary(s) {}
+
+    // Member function to display employee details
+    void display() {
+        cout << "Employee ID: " << employeeId << ", Salary: " << salary << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of Employee template class with different data types
+    Employee<int, float> employee1(1001, 50000.0);
+    Employee<char*, double> employee2("E2002", 75000.0);
+
+    // Displaying employee details
+    cout << "Details of employee1:" << endl;
+    employee1.display(); // Output: Employee ID: 1001, Salary: 50000
+
+    cout << "Details of employee2:" << endl;
+    employee2.display(); // Output: Employee ID: E2002, Salary: 75000
+
+    getch(); // Wait for a key press
+    return 0;
+}
