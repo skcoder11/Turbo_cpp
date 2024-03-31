@@ -1,0 +1,31 @@
+#include <iostream.h>
+#include <conio.h>
+
+// Class declaration
+class MyClass {
+private:
+    int data;
+public:
+    // Default constructor
+    MyClass() {
+        data = 0; // Initializing data member to 0
+    }
+
+    // Member function to display data
+    void display() {
+        cout << "Data: " << data << endl;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating an object of MyClass
+    MyClass obj;
+
+    // Displaying data using the member function
+    obj.display();
+
+    getch(); // Wait for a key press
+    return 0;
+}
