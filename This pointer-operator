@@ -1,0 +1,44 @@
+#include <iostream.h>
+#include <conio.h>
+
+class MyClass {
+private:
+    int data;
+public:
+    // Constructor
+    MyClass(int data) {
+        this->data = data;
+    }
+
+    // Member function to display data
+    void display() {
+        cout << "Data: " << this->data << endl;
+    }
+
+    // Member function to compare data with another object's data
+    bool isEqual(MyClass other) {
+        return this->data == other.data;
+    }
+};
+
+int main() {
+    clrscr(); // Clear the screen
+
+    // Creating objects of MyClass
+    MyClass obj1(10);
+    MyClass obj2(20);
+
+    // Displaying data of obj1
+    cout << "Data of obj1: ";
+    obj1.display();
+
+    // Comparing data of obj1 with obj2
+    if (obj1.isEqual(obj2)) {
+        cout << "Data of obj1 is equal to data of obj2" << endl;
+    } else {
+        cout << "Data of obj1 is not equal to data of obj2" << endl;
+    }
+
+    getch(); // Wait for a key press
+    return 0;
+}
